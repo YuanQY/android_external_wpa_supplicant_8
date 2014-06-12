@@ -55,6 +55,11 @@ L_CFLAGS += -DCONFIG_CTRL_IFACE_DIR=\"/data/system/wpa_supplicant\"
 else
 L_CFLAGS += -DCONFIG_CTRL_IFACE_DIR=\"/data/system/hostapd\"
 endif
+ifeq ($(TARGET_BOARD_PLATFORM),MT6589)
+L_CFLAGS += -DCONFIG_CTRL_IFACE_DIR=\"/data/misc/wpa_supplicant\"
+else
+L_CFLAGS += -DCONFIG_CTRL_IFACE_DIR=\"/data/system/wpa_supplicant\"
+endif
 
 # To force sizeof(enum) = 4
 ifeq ($(TARGET_ARCH),arm)
